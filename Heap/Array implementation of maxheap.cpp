@@ -4,21 +4,23 @@ using namespace std;
 // maxheap implementation of array
 void maxheap(int arr[], int i, int n)
 {
-    int l = (i * 2) + 1;
-    int r = (i * 2) + 2;
-    int s = i;
-    if (l < n && arr[l] > arr[s])
+    int left = (i * 2) + 1;
+    int right = (i * 2) + 2;
+
+    int smallest = i; // Assuming parent is the smallest 
+    
+    if (left < n && arr[left] > arr[smallest])
     {
-        s = l;
+        smallest = left;
     }
-    if (r < n && arr[r] > arr[s])
+    if (right < n && arr[right] > arr[smallest])
     {
-        s = r;
+        smallest = right;
     }
-    if (s != i)
+    if (smallest != i)
     {
-        swap(arr[i], arr[s]);
-        maxheap(arr, s, n); // again checking if swapped value satisfies maxheap condition
+        swap(arr[i], arr[smallest]);
+        maxheap(arr, smallest, n); // again checking if swapped value satisfies maxheap condition
     }
 }
 
