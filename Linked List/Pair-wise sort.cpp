@@ -38,7 +38,7 @@ void pairswap()
     // swaps the elements in the linked list in pairs
     Node *temp = head;
     while ((temp->next != NULL && temp->next->next != NULL))
-    { 
+    {
         int temp_data = temp->data;
         temp->data = temp->next->data;
         temp->next->data = temp_data;
