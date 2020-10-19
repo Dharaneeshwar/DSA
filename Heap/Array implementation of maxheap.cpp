@@ -7,20 +7,20 @@ void maxheap(int arr[], int i, int n)
     int left = (i * 2) + 1;
     int right = (i * 2) + 2;
 
-    int smallest = i; // Assuming parent is the smallest 
+    int largest = i; // Assuming parent is the largest
     
-    if (left < n && arr[left] > arr[smallest])
+    if (left < n && arr[left] > arr[largest])
     {
-        smallest = left;
+        largest = left;
     }
-    if (right < n && arr[right] > arr[smallest])
+    if (right < n && arr[right] > arr[largest])
     {
-        smallest = right;
+        largest = right;
     }
-    if (smallest != i)
+    if (largest != i)
     {
-        swap(arr[i], arr[smallest]);
-        maxheap(arr, smallest, n); // again checking if swapped value satisfies maxheap condition
+        swap(arr[i], arr[largest]);
+        maxheap(arr, largest, n); // again checking if swapped value satisfies maxheap condition
     }
 }
 
